@@ -1,0 +1,18 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background: url('/assets/hero3.jpg');
+  background-size: cover;
+  background-position:bottom right;
+  height: 90vh;
+}
+
+.logo{
+border:2px solid black;
+width: 55px;
+
+}
