@@ -1,18 +1,74 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import 'abstract/variables';
+@import 'abstract/functions';
+@import 'abstract/mixins';
+@import 'partials/base';
+@import 'partials/typography';
+@import 'partials/utilities';
+@import 'partials/animations';
+
+@import 'pages/home';
 
 .header {
-  background: url('/assets/hero3.jpg');
+  background-color: red;
+  background: linear-gradient(
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url('/assets/hero3.jpg');
   background-size: cover;
-  background-position:bottom right;
-  height: 90vh;
-}
+  background-position: bottom right;
+  height: 95vh;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+  position: relative;
 
-.logo{
-border:2px solid black;
-width: 55px;
+  &__logo {
+    position: absolute;
+    top: 10px;
+    // border:2px solid black;
+    width: 55px;
+    margin: 3rem;
+  }
 
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-15%);
+  }
+
+  &__heading {
+    color: $color-light;
+    margin-bottom: 6rem;
+  }
+
+  &__title {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3.5rem;
+    text-align: center;
+  }
+
+  &__tagline {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+  }
+
+  &__link{
+     background-color: gold;
+    // background-color: $color-light;
+    padding: 1rem 4rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    border-radius: 10rem;
+    cursor: pointer;
+  }
 }
