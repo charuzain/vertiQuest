@@ -5,3 +5,6 @@ List of Anchor Pseudo Classes
 :active: used to apply styles to an active link. A link becomes active when the user clicks on it.
 
 source:https://codescracker.com/css/css-anchor-pseudo-classes.htm
+
+PROPERTY
+background clip

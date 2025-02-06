@@ -58,6 +58,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 3.5rem;
   text-align: center;
+  animation: moveRight 1s ease-out;
 }
 .header__tagline {
   display: block;
@@ -65,6 +66,8 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1rem;
+  text-align: center;
+  animation: moveLeft 1s linear;
 }
 .header__link {
   background-color: gold;
@@ -73,4 +76,49 @@ body {
   font-size: 1.5rem;
   border-radius: 10rem;
   cursor: pointer;
+  animation: moveUp 0.5s linear 0.75s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translate(-100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(30px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.8;
+  }
+}
+@keyframes moveLeft {
+  0% {
+    transform: translate(100px);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(-30px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 0.8;
+  }
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
 }/*# sourceMappingURL=styles.css.map */
