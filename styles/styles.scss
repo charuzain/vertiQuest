@@ -67,15 +67,109 @@
   }
 
   &__link {
-    background-color: gold;
-    // background-color: $color-light;
+    // background-color: gold;
+    background-color: $color-light;
     padding: 1rem 4rem;
     text-transform: uppercase;
-    font-size: 1.5rem;
     border-radius: 10rem;
     cursor: pointer;
     animation: moveUp 0.5s linear 0.75s;
     animation-fill-mode: backwards;
+    position: relative;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    z-index: 1000;
+    transition: transform 0.2s;// transition property is set on inital state
+  
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+
+      &::after {
+        animation: btn 0.4s ease-in-out;
+        color: transparent;
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    &::after {
+      // content: 'explore now';
+            content: '';
+            width: 100%;
+            height: 100%;
+            
+
+      // padding: 1rem 4rem;
+      // font-size: 10px;
+      z-index: -1;
+      border-radius: 10rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      background-color:  $color-light;;
+    }
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content min-content;
+  row-gap: 4rem;
+
+  background-color: $color-grey-light-1;
+  padding: 25vh;
+  margin-top: -20vh;
+  border: 2px solid red;
+
+  &__heading {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    font-size: 3rem;
+    border: 2px solid red;
+  }
+
+  &__left {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  &__right {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height: 100%;
+  }
+
+  &__image-1 {
+    grid-row: 1/5;
+    grid-column: 1/6;
+    border: 1px solid red;
+    z-index: 1;
+  }
+
+  &__image-2 {
+    grid-row: 3/7;
+    grid-column: 2/-1;
+    border: 1px solid red;
+  }
+
+  &__image-3 {
+    grid-row: 2/6;
+    grid-column: 4/-1;
+    border: 1px solid red;
+  }
+
+  &__image {
+    // aspect-ratio: 16/9;
+    height: 100%;
   }
 }
 
@@ -124,5 +218,24 @@
   100% {
     transform: translateY(0);
     opacity: 0.8;
+  }
+}
+
+@keyframes btn {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    transform: scaleX(1.2) scaleY(-1.2);
+    opacity: 0.1;
+  }
+  70% {
+    transform: scaleX(1.3) scaleY(-1.6);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scaleX(1.4) scaleY(-1.9);
+    opacity: 0;
   }
 }
