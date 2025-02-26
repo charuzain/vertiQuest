@@ -27,7 +27,6 @@ body {
 }
 
 .header {
-  background-color: red;
   background: linear-gradient(rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("/assets/hero3.jpg");
   background-size: cover;
   background-position: bottom right;
@@ -132,16 +131,19 @@ body {
 .main__heading {
   grid-column: 1/-1;
   grid-row: 1/2;
-  font-size: 3rem;
   justify-self: center;
-  text-transform: uppercase;
-  color: #28b485;
   font-size: 3.5rem;
   font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 2px;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
 }
 .main__heading:hover {
-  transform: skewX(2deg) skewY(1deg);
+  transform: skewY(1deg) skewX(1deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .main__left {
