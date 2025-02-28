@@ -9,6 +9,12 @@ source:https://codescracker.com/css/css-anchor-pseudo-classes.htm
 PROPERTY
 background clip
 
+backface-visibilty 
+box-decoration  break
+perspective
+background blend modes
+
+
 
 Reference type vs value 
 
