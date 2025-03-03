@@ -111,7 +111,7 @@ body {
   transform: translateY(-15%);
 }
 .header__heading {
-  color: #fff;
+  color: rgb(255, 255, 255);
   margin-bottom: 6rem;
 }
 .header__title {
@@ -133,7 +133,7 @@ body {
   animation: moveLeft 1s linear;
 }
 .header__link {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   padding: 1rem 4rem;
   text-transform: uppercase;
   border-radius: 10rem;
@@ -168,7 +168,7 @@ body {
   top: 0;
   right: 0;
   opacity: 0;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 
 .main {
@@ -452,7 +452,7 @@ body {
   font-size: 2rem;
 }
 .adventure__link {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   padding: 1rem 4rem;
   text-transform: uppercase;
   border-radius: 10rem;
@@ -490,12 +490,29 @@ body {
   top: 0;
   right: 0;
   opacity: 0;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
+}
+
+.review-section {
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+.video__background {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
 }
 
 .review {
   background-color: #f7f7f7;
-  border: 4px solid red;
   padding: 15rem 5rem;
   display: flex;
   flex-direction: column;
@@ -514,13 +531,14 @@ body {
   color: transparent;
   transition: all 0.2s;
   text-align: center;
+  position: relative;
 }
 .review__title:hover {
   transform: skewY(1deg) skewX(1deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .review__card {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.4);
   padding: 6rem 6rem;
   max-width: 75%;
   margin: 2rem auto;
@@ -570,6 +588,7 @@ body {
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 .review__link {
+  position: relative;
   font-size: 1.6rem;
   word-spacing: 0.1rem;
   align-self: flex-start;
