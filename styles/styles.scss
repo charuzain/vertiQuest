@@ -101,25 +101,7 @@
   }
 
   &__link {
-    font-size: 1.6rem;
-    word-spacing: 0.1rem;
-    align-self: flex-start;
-    color: $color-primary-dark;
-    border-bottom: 1px solid $color-primary-dark;
-    transition: transform 0.2s;
-
-    &:hover {
-      background-color: $color-primary-dark;
-      color: white;
-      padding: 2px;
-      transform: translateY(-5px);
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    }
-
-    &:active {
-      transform: translateY(-1px);
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
-    }
+    @include link;
   }
 
   &__subheading {
@@ -187,17 +169,15 @@
       border: 1px solid black;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 4rem;
-          // margin: 1rem 10rem;
+      // margin: 1rem 10rem;
       // margin: 2rem 16rem;
       padding: 2rem 4rem;
-      margin : 6rem 2rem;
+      margin: 6rem 2rem;
       max-width: 1280px;
     }
 
-    @include desktop{
-
-        column-gap: 5rem;
-   
+    @include desktop {
+      column-gap: 5rem;
     }
   }
 
@@ -205,16 +185,15 @@
     padding: 2rem 3rem;
     background-color: rgba($color-light, 0.8);
     border-radius: 2px;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 
-    @include tablet-and-desktop{
-        //  padding: 2rem 1rem;
- 
+    @include tablet-and-desktop {
+      //  padding: 2rem 1rem;
     }
 
-    @include desktop{
-           padding: 3rem 3rem;
+    @include desktop {
+      padding: 3rem 3rem;
     }
 
     // display: flex;
@@ -223,7 +202,7 @@
     // // align-items: center;
     // gap: 2rem;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
       transform: translateY(-1.5rem) scale(1.03);
     }
@@ -248,34 +227,35 @@
     // margin: 2rem 0px;
   }
 
-  &__heading{
+  &__heading {
     text-transform: uppercase;
     text-align: center;
     font-size: 16px;
     margin-bottom: 2rem;
   }
 
-  &__description{
-  font-size: 14px;
-  text-align: center;
+  &__description {
+    font-size: 14px;
+    text-align: center;
   }
-
-
 }
 
 .adventure {
-  background-color: $color-grey-light-1;
   margin-top: -20vh;
   border: 4px solid red;
+  background-color: $color-grey-light-1;
 
   &__container {
-    border: 4px solid red;
+    // border: 4px solid red;
     //  margin: 25rem 10rem 10rem ;
     // background-color: red;
     padding: 25rem 4rem 12.5rem;
     // column-gap: 5rem;
     max-width: 1140px;
     margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(3, min-content);
+    row-gap: 4rem;
   }
 
   &__heading {
@@ -284,13 +264,188 @@
   }
   // border:4px solid red;
 
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 6rem;
+    // border:10px solid blue;
+    padding: 4rem;
+  }
+
+  &__card-container {
+    position: relative;
+    height: 45rem;
+    perspective: 140rem; // applied to parent containmer
+    // border:5px solid red;
+
+    &:hover .adventure__card--front {
+      transform: rotateY(-180deg);
+      backface-visibility: hidden;
+    }
+
+    &:hover .adventure__card--back {
+      transform: rotateY(0deg);
+    }
+  }
+
+  &__card {
+    transition: all 1s;
+    height: 20rem;
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+
+    &--front {
+      background-color: red;
+      top: 0;
+    }
+
+    &--back {
+      background-color: yellowgreen;
+      transform: rotateY(180deg);
+      top: 0;
+      backface-visibility: hidden;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-secondary-light,
+        $color-secondary-dark
+      );
+      // FOR LINEAR GRADIENT ITS BACKGROUND IMAGE not backgroubd
+    }
+
+    // &:hover &card--front {
+    //   transform: rotateY(-180deg);
+    // }
+
+    //  &:hover &card--back {
+    //   transform: rotateY(0deg);
+    // }
+  }
+
+  &__image {
+    background: url('/assets/spo.jpg');
+    height: 20rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+    position: relative;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 20%;
+    right: 1rem;
+    background-color: orange;
+    text-transform: uppercase;
+    color: white;
+    padding: 1rem;
+    font-size: 2rem;
+    // font-weight: 400;
+  }
+
   &__link {
     @include btn;
     background-color: $color-primary-dark;
     color: white;
+    justify-self: center;
+  }
+}
+
+.review {
+  background-color: $color-grey-light-1;
+  border: 4px solid red;
+  padding: 15rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    @include secondary-heading;
+    text-align: center;
   }
 
-  &__card{
-    background-color: red;
+  &__card {
+    background-color: white;
+    // border:1px solid purple;
+    padding: 6rem 6rem;
+    max-width: 75%;
+    margin: 2rem auto;
+    padding-left: 8rem;
+    font-size: 1.6rem;
+    transform: skewX(-15deg);
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+ 
+    
+
+    &:hover .review__name {
+      // filter: 
+      opacity: 1;
+      transform: translate(-50%,-50%);
+    }
+
+        &:hover .review__image {
+          filter: blur(2px) brightness(80%);
+              transform: scale(1.2);
+// brigtness less than 80% dark above 100 light
+      // filter: 
+      // opacity: 1;
+      // transform: translate(-50%,-50%);
+    }
+  }
+
+  &__image-container {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    // translate: -2rem;
+    shape-outside: circle(50%);
+    clip-path: circle(50%);
+    transform: skewX(15deg) translateX(-2rem);
+    // transform: translateY(-1rem);
+    position: relative;
+    // border: 2px solid red;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.4) ;
+    transition: transform 0.5s ease;
+    // object-fit: cover;
+    // object-position: bottom;
+
+    // transform: translateY(-1rem)
+  }
+
+  &__text {
+    transform: skewX(15deg);
+    // display: flex;
+    // flex-direction: column;
+  }
+
+  &__name{
+    font-size: 1.7rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -10%);
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0;
+    // transition: all 0.9sec;
+      transition: opacity 0.9s ease, transform 0.9s ease; 
+    
+
+  }
+
+  &__link{
+    @include link;
   }
 }

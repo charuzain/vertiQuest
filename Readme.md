@@ -8,11 +8,14 @@ source:https://codescracker.com/css/css-anchor-pseudo-classes.htm
 
 PROPERTY
 background clip
-
-backface-visibilty 
-box-decoration  break
+clip path
 perspective
+backface-visibilty 
+box-decoration break
 background blend modes
+
+object fit
+
 
 
 

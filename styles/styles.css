@@ -141,7 +141,7 @@ body {
   animation: moveUp 0.5s linear 0.75s;
   animation-fill-mode: backwards;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   letter-spacing: 0.2rem;
   z-index: 1000;
   transition: transform 0.2s;
@@ -364,15 +364,17 @@ body {
 }
 
 .adventure {
-  background-color: #f7f7f7;
   margin-top: -20vh;
   border: 4px solid red;
+  background-color: #f7f7f7;
 }
 .adventure__container {
-  border: 4px solid red;
   padding: 25rem 4rem 12.5rem;
   max-width: 1140px;
   margin: 0 auto;
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+  row-gap: 4rem;
 }
 .adventure__heading {
   font-size: 3.5rem;
@@ -390,6 +392,65 @@ body {
   transform: skewY(1deg) skewX(1deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
+.adventure__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 6rem;
+       column-gap: 6rem;
+  padding: 4rem;
+}
+.adventure__card-container {
+  position: relative;
+  height: 45rem;
+  perspective: 140rem;
+}
+.adventure__card-container:hover .adventure__card--front {
+  transform: rotateY(-180deg);
+  backface-visibility: hidden;
+}
+.adventure__card-container:hover .adventure__card--back {
+  transform: rotateY(0deg);
+}
+.adventure__card {
+  transition: all 1s;
+  height: 20rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+}
+.adventure__card--front {
+  background-color: red;
+  top: 0;
+}
+.adventure__card--back {
+  background-color: yellowgreen;
+  transform: rotateY(180deg);
+  top: 0;
+  backface-visibility: hidden;
+  background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+}
+.adventure__image {
+  background: url("/assets/spo.jpg");
+  height: 20rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
+  position: relative;
+}
+.adventure__title {
+  position: absolute;
+  bottom: 20%;
+  right: 1rem;
+  background-color: orange;
+  text-transform: uppercase;
+  color: white;
+  padding: 1rem;
+  font-size: 2rem;
+}
 .adventure__link {
   background-color: #fff;
   padding: 1rem 4rem;
@@ -399,12 +460,13 @@ body {
   animation: moveUp 0.5s linear 0.75s;
   animation-fill-mode: backwards;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   letter-spacing: 0.2rem;
   z-index: 1000;
   transition: transform 0.2s;
   background-color: #28b485;
   color: white;
+  justify-self: center;
 }
 .adventure__link:hover {
   transform: translateY(-3px);
@@ -430,6 +492,99 @@ body {
   opacity: 0;
   background-color: #fff;
 }
-.adventure__card {
-  background-color: red;
+
+.review {
+  background-color: #f7f7f7;
+  border: 4px solid red;
+  padding: 15rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.review__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+  text-align: center;
+}
+.review__title:hover {
+  transform: skewY(1deg) skewX(1deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.review__card {
+  background-color: white;
+  padding: 6rem 6rem;
+  max-width: 75%;
+  margin: 2rem auto;
+  padding-left: 8rem;
+  font-size: 1.6rem;
+  transform: skewX(-15deg);
+  border-radius: 4px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+}
+.review__card:hover .review__name {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.review__card:hover .review__image {
+  filter: blur(2px) brightness(80%);
+  transform: scale(1.2);
+}
+.review__image-container {
+  width: 15rem;
+  height: 15rem;
+  float: left;
+  shape-outside: circle(50%);
+  -webkit-clip-path: circle(50%);
+          clip-path: circle(50%);
+  transform: skewX(15deg) translateX(-2rem);
+  position: relative;
+}
+.review__image {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.4);
+  transition: transform 0.5s ease;
+}
+.review__text {
+  transform: skewX(15deg);
+}
+.review__name {
+  font-size: 1.7rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.review__link {
+  font-size: 1.6rem;
+  word-spacing: 0.1rem;
+  align-self: flex-start;
+  color: #28b485;
+  border-bottom: 1px solid #28b485;
+  transition: transform 0.2s;
+}
+.review__link:hover {
+  background-color: #28b485;
+  color: white;
+  padding: 2px;
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.review__link:active {
+  transform: translateY(-1px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
 }/*# sourceMappingURL=styles.css.map */
