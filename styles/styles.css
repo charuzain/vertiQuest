@@ -752,6 +752,34 @@ body {
 .booking__radio > label {
   font-size: 1.6rem;
   font-family: inherit;
+  cursor: pointer;
+}
+.booking__option {
+  font: inherit;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid #28b485;
+  border-radius: 50%;
+  position: relative;
+}
+.booking__option::before {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #28b485;
+  opacity: 0;
+}
+.booking__option:checked::before {
+  opacity: 1;
 }
 
 .footer {

@@ -579,7 +579,6 @@
   }
 
   &__radio {
-    // border: 1px solid red;
     width: 40%;
     display: flex;
     gap: 1rem;
@@ -590,9 +589,42 @@
   &__radio >label{
     font-size: 1.6rem;
     font-family: inherit;
+    cursor: pointer;
   }
 
+  &__option{
+    font: inherit;
+    appearance: none;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border:3px solid $color-primary-dark;
+    border-radius: 50%;
+    position: relative;
 
+ &::before{
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50% , -50%);
+  // transform: scale(1.2);
+  background-color: $color-primary-dark;
+  // transition: 120ms transform ease-in-out;
+  //  box-shadow: inset 1em 1em green;
+  opacity: 0;
+ }
+
+ &:checked::before {
+  // transform: scale(1);
+  opacity: 1;
+}
+
+
+}
 }
 
 .footer {
