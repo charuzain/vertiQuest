@@ -476,41 +476,88 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(
-    to right,
+    to right bottom,
     $color-primary-light,
     $color-primary-dark
   );
 
-  // background-color: $color-primary-dark;
-
   &__form-container {
     width: 80%;
-
-    // border:2px solid purple;
     margin: auto auto;
-
-    // padding: 4rem;
-    // background-color: purple;
     background: url('../assets/hero1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.2);
+    // background-size: 100%;
+    box-shadow: 0px 1.5rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
+    background-image: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        transparent 50%
+      ),
+      url('../assets/hero1.jpg');
   }
 
   &__form {
     width: 60%;
-    background-color: rgba($color-light, 0.9);
-    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%);
+    // background-color: rgba($color-light, 0.9);
+    // clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%);
     // border:2px solid red;
     padding: 5rem 8rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    // border: 3px solid green;
-    // overflow: hidden;
+    gap: 2rem;
+    // border:3px solid red;
   }
 
+  &__input {
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    border-radius: 4px;
+    // When we foucs on input field border bottom on 3px cause element to move a little , so set the border bottom on initial stae and give it a solid color
+    border-bottom: 3px solid transparent;
+    display: block;
+    width: 80%;
+    background-color: $color-light;
+
+    &:focus {
+      outline: none; // efault blue border
+      box-shadow: 0 1rem 2rem rgba($color-dark, $alpha: 0.1);
+      border-bottom: 3px solid $color-primary-dark;
+
+      &:invalid {
+        border-bottom: 3px solid orange;
+      }
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+
+    //placeholder-shown is on input
+    // when a placeholder is shown on input element we want to style the label , input and label are sibling we can use sibling selector
+  }
+
+  &__label {
+    display: block;
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s;
+  }
+  //placeholder-shown is on input
+  // when a placeholder is shown on input element we want to style the label , input and label are sibling we can use sibling selector. as soon as we start typing placeholder-shown is gone
+
+  &__input:placeholder-shown + &__label {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-3.5rem);
+    // margin-top: -3.5rem;
+  }
   &__title {
     @include secondary-heading;
   }
@@ -521,6 +568,31 @@
     color: white;
     border: none;
   }
+
+  &__radio-button {
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid red;
+    align-items: center;
+    // padding: 1rem;
+    justify-content: flex-start;
+  }
+
+  &__radio {
+    // border: 1px solid red;
+    width: 40%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    // padding: 1rem;
+  }
+
+  &__radio >label{
+    font-size: 1.6rem;
+    font-family: inherit;
+  }
+
+
 }
 
 .footer {
@@ -533,12 +605,10 @@
   padding: 6rem;
 
   &__logo-container {
-    // border: 5px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // display: inline-block;
   }
 
   &__logo {
@@ -558,7 +628,7 @@
     margin-top: -20px;
   }
 
-  &__nav{
+  &__nav {
     // border:5px solid red;
     display: flex;
     flex-direction: row;
@@ -567,15 +637,13 @@
     justify-content: space-between;
   }
 
-  &__navlist{
-        display: flex;
+  &__navlist {
+    display: flex;
     flex-direction: row;
-        gap:2rem;
-        border-top: 0.5px solid white;
-        padding-top: 1.5rem;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-
-
+    gap: 2rem;
+    border-top: 0.5px solid white;
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
   }
 }
