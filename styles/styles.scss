@@ -243,7 +243,8 @@
 .adventure {
   margin-top: -20vh;
   border: 4px solid red;
-  background-color: $color-grey-light-1;
+  // background-color: $color-grey-light-1;
+  background-color: #fff;
 
   &__container {
     // border: 4px solid red;
@@ -251,7 +252,7 @@
     // background-color: red;
     padding: 25rem 4rem 12.5rem;
     // column-gap: 5rem;
-    max-width: 1140px;
+    max-width: 1280px;
     margin: 0 auto;
     display: grid;
     grid-template-rows: repeat(3, min-content);
@@ -274,7 +275,7 @@
 
   &__card-container {
     position: relative;
-    height: 45rem;
+    height: 50rem;
     perspective: 140rem; // applied to parent containmer
     // border:5px solid red;
 
@@ -296,9 +297,10 @@
     height: 100%;
     width: 100%;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
 
     &--front {
-      background-color: red;
       top: 0;
     }
 
@@ -313,20 +315,17 @@
         $color-secondary-dark
       );
       // FOR LINEAR GRADIENT ITS BACKGROUND IMAGE not backgroubd
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      color: #fff;
     }
-
-    // &:hover &card--front {
-    //   transform: rotateY(-180deg);
-    // }
-
-    //  &:hover &card--back {
-    //   transform: rotateY(0deg);
-    // }
   }
 
   &__image {
     background: url('/assets/spo.jpg');
-    height: 20rem;
+    height: 30rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -343,7 +342,37 @@
     color: white;
     padding: 1rem;
     font-size: 2rem;
-    // font-weight: 400;
+
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding: 2rem 4rem;
+  }
+
+  &__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__item:not(:last-child) {
+    border-bottom: 2px solid $color-grey-light-1;
+    padding-bottom: 1rem;
+  }
+
+  &__only {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &__price {
+    font-size: 6rem;
+    font-weight: lighter;
   }
 
   &__link {
@@ -588,45 +617,43 @@
     // padding: 1rem;
   }
 
-  &__radio >label{
+  &__radio > label {
     font-size: 1.6rem;
     font-family: inherit;
     cursor: pointer;
   }
 
-  &__option{
+  &__option {
     font: inherit;
     appearance: none;
     min-width: 2.5rem;
     height: 2.5rem;
-    border:3px solid $color-primary-dark;
+    border: 3px solid $color-primary-dark;
     border-radius: 50%;
     position: relative;
 
- &::before{
-  content: "";
-  width: 1.25rem;
-  height: 1.25rem;
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left:50%;
-  transform: translate(-50% , -50%);
-  // transform: scale(1.2);
-  background-color: $color-primary-dark;
-  // transition: 120ms transform ease-in-out;
-  //  box-shadow: inset 1em 1em green;
-  opacity: 0;
- }
+    &::before {
+      content: '';
+      width: 1.25rem;
+      height: 1.25rem;
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // transform: scale(1.2);
+      background-color: $color-primary-dark;
+      // transition: 120ms transform ease-in-out;
+      //  box-shadow: inset 1em 1em green;
+      opacity: 0;
+    }
 
- &:checked::before {
-  // transform: scale(1);
-  opacity: 1;
-}
-
-
-}
+    &:checked::before {
+      // transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
 
 .footer {
@@ -663,7 +690,7 @@
   }
 
   &__nav {
-    margin-top: 6rem ;
+    margin-top: 6rem;
     margin-bottom: 6rem;
     // border:5px solid red;
     display: flex;
@@ -687,10 +714,10 @@
     width: 50%;
   }
 
-  &__item{
-    &:hover{
-      color:$color-primary-dark;
-      box-shadow: 0px 3px 3px rgba(0,0,0,0.6);
+  &__item {
+    &:hover {
+      color: $color-primary-dark;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
       transform: scale(1.2) rotate(5deg);
     }
   }
