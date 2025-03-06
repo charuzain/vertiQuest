@@ -8,6 +8,91 @@
 
 @import 'pages/home';
 
+.navigation {
+
+  &__checkbox {
+    // visibility: hidden;
+    display: none;
+
+  }
+
+  &__button {
+    width: 7rem;
+    height: 7rem;
+    background-color: #fff;
+    border-radius: 50%;
+    position: fixed;
+     right: 6rem;
+     top: 6rem;
+    z-index: 1000;
+  }
+  &__background {
+    width: 6rem;
+    height: 6rem;
+    //start from middle and goes outside radial
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    border-radius: 50%;
+    position: fixed;
+    z-index: 999;
+    right: 6rem;
+    top: 6rem;
+  }
+
+  &__nav {
+    background-color: green;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 990;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #fff;
+    top: 0;
+    left: 0;
+    // right: 0;
+  }
+
+  &__list {
+          //  display: block;
+
+  }
+
+  &__item {
+        // border: 2px solid yellow;
+
+  }
+
+  &__link {
+    display: block;
+            // border: 2px solid pink;
+            width: 100%;
+            // padding: 3rem;
+
+    background: linear-gradient(
+      125deg,
+      transparent 0%,
+      transparent 50%,
+      #fff 50%
+    );
+    
+    padding: 5px;
+    background-size: 250%;
+    transition: all 0.4s;
+
+    &:hover {
+      background-position: 100%;
+      color: #000000;
+      transform: translateX(-1rem);
+    }
+  }
+}
+
 .header {
   background: linear-gradient(
       rgba($color-primary-light, 0.8),
@@ -166,7 +251,7 @@
     // min-width: 320px;
 
     @include tablet-and-desktop {
-      border: 1px solid black;
+      // border: 1px solid black;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 4rem;
       // margin: 1rem 10rem;
@@ -242,7 +327,7 @@
 
 .adventure {
   margin-top: -20vh;
-  border: 4px solid red;
+  // border: 4px solid red;
   // background-color: $color-grey-light-1;
   background-color: #fff;
 
@@ -342,7 +427,6 @@
     color: white;
     padding: 1rem;
     font-size: 2rem;
-
   }
 
   &__list {
