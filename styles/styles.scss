@@ -9,12 +9,12 @@
 @import 'pages/home';
 
 .navigation {
-
   &__checkbox {
     // visibility: hidden;
     display: none;
-
   }
+
+ 
 
   &__button {
     width: 7rem;
@@ -22,10 +22,11 @@
     background-color: #fff;
     border-radius: 50%;
     position: fixed;
-     right: 6rem;
-     top: 6rem;
-    z-index: 1000;
+    right: 6rem;
+    top: 6rem;
+    z-index: 2000;
   }
+
   &__background {
     width: 6rem;
     height: 6rem;
@@ -36,51 +37,62 @@
     );
     border-radius: 50%;
     position: fixed;
-    z-index: 999;
-    right: 6rem;
-    top: 6rem;
+    z-index: 1000;
+    right: 6.5rem;
+    top: 6.5rem;
+    // transform: scale(80);
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
   }
 
+  
+
   &__nav {
-    background-color: green;
-    width: 100%;
+    background-color: transparent;
     height: 100vh;
     position: fixed;
-    z-index: 990;
+    z-index: 1500;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+   
     color: #fff;
     top: 0;
     left: 0;
-    // right: 0;
+    //If opacity is set to 0 , still pointer will be there on links , so set the width to 0
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+
   }
 
   &__list {
-          //  display: block;
-
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   &__item {
-        // border: 2px solid yellow;
-
+    margin: 1rem;
   }
 
   &__link {
     display: block;
-            // border: 2px solid pink;
-            width: 100%;
-            // padding: 3rem;
-
+    width: 100%;
+     font-size: 3rem;
+     font-weight: 300;
+    color: white;
     background: linear-gradient(
       125deg,
       transparent 0%,
       transparent 50%,
       #fff 50%
     );
-    
+
     padding: 5px;
     background-size: 250%;
     transition: all 0.4s;
@@ -90,6 +102,19 @@
       color: #000000;
       transform: translateX(-1rem);
     }
+  }
+
+  //~ general sibling
+  //+ adjacent selector
+  &__checkbox:checked ~ &__background{
+        transform: scale(80);
+
+  }
+
+  &__checkbox:checked ~ &__nav{
+    opacity: 1;
+    width: 100%;
+    
   }
 }
 
