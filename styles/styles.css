@@ -92,6 +92,30 @@ body {
 .navigation__checkbox {
   display: none;
 }
+.navigation__icon {
+  height: 2px;
+  width: 3rem;
+  display: block;
+  background-color: black;
+  position: relative;
+  margin: auto;
+  top: 50%;
+}
+.navigation__icon::before, .navigation__icon::after {
+  height: 2px;
+  width: 3rem;
+  background-color: black;
+  content: "";
+  display: block;
+  position: absolute;
+  transition: all 0.2s;
+}
+.navigation__icon::after {
+  top: 1rem;
+}
+.navigation__icon::before {
+  top: -1rem;
+}
 .navigation__button {
   width: 7rem;
   height: 7rem;
@@ -101,6 +125,23 @@ body {
   right: 6rem;
   top: 6rem;
   z-index: 2000;
+}
+.navigation__button:hover .navigation__icon::before {
+  top: -1.2rem;
+}
+.navigation__button:hover .navigation__icon::after {
+  top: 1.2rem;
+}
+.navigation__checkbox:checked ~ .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+.navigation__checkbox:checked ~ .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation__checkbox:checked ~ .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
 }
 .navigation__background {
   width: 6rem;
@@ -902,7 +943,7 @@ body {
   align-items: center;
 }
 .footer__logo {
-  width: 120px;
+  width: 100px;
 }
 .footer__brand {
   background-image: linear-gradient(to right, #7ed56f, #28b485);
@@ -930,7 +971,6 @@ body {
   padding-top: 1.5rem;
   font-size: 1.5rem;
   text-transform: uppercase;
-  width: 50%;
 }
 .footer__item:hover {
   color: #28b485;

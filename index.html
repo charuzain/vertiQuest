@@ -19,14 +19,21 @@
   </head>
   <body>
     <div class="navigation">
-      <input type="checkbox" name="menu" id="menu" class="navigation__checkbox" />
-      <label for="menu" class="navigation__button">Icon</label>
+      <input
+        type="checkbox"
+        name="menu"
+        id="menu"
+        class="navigation__checkbox"
+      />
+      <label for="menu" class="navigation__button">
+        <span class="navigation__icon"></span>
+      </label>
       <div class="navigation__background"></div>
 
       <nav class="navigation__nav">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a href="#" class="navigation__link">Home</a>
+            <a href="review.html" class="navigation__link">Home</a>
           </li>
           <li class="navigation__item">
             <a href="#" class="navigation__link">About Us</a>
@@ -35,7 +42,7 @@
             <a href="#" class="navigation__link">Tours</a>
           </li>
           <li class="navigation__item">
-            <a href="#" class="navigation__link">Reviews</a>
+            <a href="#review" class="navigation__link">Reviews</a>
           </li>
           <li class="navigation__item">
             <a href="#" class="navigation__link">Book Now</a>
@@ -234,7 +241,7 @@
         </section>
       </div>
 
-      <div class="review-section">
+      <div class="review-section" id="review">
         <div class="video">
           <video autoplay loop muted class="video__background">
             <source src="./assets/vid.mp4" type="video/mp4" />
@@ -380,11 +387,12 @@
             <a href="" class="footer__link">Github</a>
           </li>
           <li class="footer__item">
-            <a href="" class="footer__link">Linkedin</a>
+            <a href="review.html" class="footer__link">Linkedin</a>
           </li>
         </ul>
       </div>
     </footer>
+    <script src="./index.js"></script>
   </body>
 </html>
 <!-- 

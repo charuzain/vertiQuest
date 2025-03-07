@@ -7,6 +7,9 @@
 @import 'partials/animations';
 
 @import 'pages/home';
+// html {
+//   scroll-behavior: smooth;
+// }
 
 .navigation {
   &__checkbox {
@@ -14,7 +17,34 @@
     display: none;
   }
 
- 
+  &__icon {
+    height: 2px;
+    width: 3rem;
+    display: block;
+    background-color: black;
+    position: relative;
+    margin: auto;
+    top: 50%;
+
+    &::before,
+    &::after {
+      height: 2px;
+      width: 3rem;
+      background-color: black;
+      content: '';
+      display: block;
+      position: absolute;
+      transition: all 0.2s;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+
+    &::before {
+      top: -1rem;
+    }
+  }
 
   &__button {
     width: 7rem;
@@ -25,6 +55,27 @@
     right: 6rem;
     top: 6rem;
     z-index: 2000;
+  }
+
+  &__button:hover &__icon::before {
+    top: -1.2rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1.2rem;
+  }
+
+  &__checkbox:checked ~ &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked ~ &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked ~ &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
   }
 
   &__background {
@@ -41,11 +92,8 @@
     right: 6.5rem;
     top: 6.5rem;
     // transform: scale(80);
-  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
   }
-
-  
 
   &__nav {
     background-color: transparent;
@@ -56,7 +104,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
+
     color: #fff;
     top: 0;
     left: 0;
@@ -64,8 +112,6 @@
     opacity: 0;
     width: 0;
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-
   }
 
   &__list {
@@ -83,8 +129,8 @@
   &__link {
     display: block;
     width: 100%;
-     font-size: 3rem;
-     font-weight: 300;
+    font-size: 3rem;
+    font-weight: 300;
     color: white;
     background: linear-gradient(
       125deg,
@@ -102,19 +148,20 @@
       color: #000000;
       transform: translateX(-1rem);
     }
+  
   }
+
+
 
   //~ general sibling
   //+ adjacent selector
-  &__checkbox:checked ~ &__background{
-        transform: scale(80);
-
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
   }
 
-  &__checkbox:checked ~ &__nav{
+  &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
-    
   }
 }
 
@@ -212,6 +259,8 @@
 
   &__link {
     @include link;
+
+    
   }
 
   &__subheading {
@@ -782,8 +831,7 @@
   }
 
   &__logo {
-    width: 120px;
-    // border: 2px solid red;
+    width: 100px;
   }
 
   &__brand {
@@ -801,10 +849,8 @@
   &__nav {
     margin-top: 6rem;
     margin-bottom: 6rem;
-    // border:5px solid red;
     display: flex;
     flex-direction: row;
-    // gap:5rem;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -819,8 +865,6 @@
     padding-top: 1.5rem;
     font-size: 1.5rem;
     text-transform: uppercase;
-    // border: 5px solid red;
-    width: 50%;
   }
 
   &__item {
