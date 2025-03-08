@@ -148,10 +148,7 @@
       color: #000000;
       transform: translateX(-1rem);
     }
-  
   }
-
-
 
   //~ general sibling
   //+ adjacent selector
@@ -259,8 +256,6 @@
 
   &__link {
     @include link;
-
-    
   }
 
   &__subheading {
@@ -539,6 +534,10 @@
     color: white;
     justify-self: center;
   }
+
+  &__link:focus .overlay {
+    display: block;
+  }
 }
 
 .review-section {
@@ -589,7 +588,6 @@
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
 
     &:hover .review__name {
-      // filter:
       opacity: 1;
       transform: translate(-50%, -50%);
     }
@@ -873,5 +871,101 @@
       box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
       transform: scale(1.2) rotate(5deg);
     }
+  }
+}
+
+.overlay {
+  height: 100vh;
+  width: 100%;
+  // background-color: white;
+  // opacity: 0.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  // backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 12000;
+
+  &__content {
+    width: 75%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 5rem;
+  }
+
+  &__left {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 2rem;
+    position: relative;
+    // border: 2px solid red;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    // align-self: flex-end;
+  }
+
+  &__heading {
+    @include secondary-heading;
+    margin-top: 2rem;
+  }
+
+  &__subheading {
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-weight: 700;
+    // margin-top: 2rem;
+  }
+
+  &__description-container {
+    display: flex;
+    flex-direction: row;
+
+    // gap: 3rem;
+    //  border: 3px solid red;;
+  }
+
+  &__description {
+    hyphens: auto;
+    font-size: 1.6rem;
+
+    &:not(:last-child) {
+      border-right: 3px solid red;
+      padding-right: 2rem;
+      width: 50%;
+    }
+    &:last-child {
+      padding-left: 2rem;
+      width: 50%;
+    }
+  }
+
+  &__button {
+    @include btn;
+    background-color: $color-primary-dark;
+    border: none;
+    padding: 2rem 3rem;
+    margin-top: 3rem;
   }
 }
