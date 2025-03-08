@@ -1021,8 +1021,15 @@ body {
 }
 .overlay__icon {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  display: block;
+}
+.overlay__icon:hover {
+  color: #28b485;
+  font-weight: 700;
+  transform: scale(1.1);
 }
 .overlay__heading {
   font-size: 3.5rem;
@@ -1034,7 +1041,8 @@ body {
           background-clip: text;
   color: transparent;
   transition: all 0.2s;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  align-self: flex-start;
 }
 .overlay__heading:hover {
   transform: skewY(1deg) skewX(1deg) scale(1.1);
@@ -1055,7 +1063,7 @@ body {
   font-size: 1.6rem;
 }
 .overlay__description:not(:last-child) {
-  border-right: 3px solid red;
+  border-right: 2px solid rgb(240, 240, 240);
   padding-right: 2rem;
   width: 50%;
 }
@@ -1076,10 +1084,11 @@ body {
   letter-spacing: 0.2rem;
   z-index: 1000;
   transition: transform 0.2s;
+  display: inline-block;
   background-color: #28b485;
   border: none;
-  padding: 2rem 3rem;
   margin-top: 3rem;
+  color: #fff;
 }
 .overlay__button:hover {
   transform: translateY(-3px);

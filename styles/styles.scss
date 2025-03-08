@@ -921,14 +921,27 @@
 
   &__icon {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    // align-self: flex-end;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    display: block;
+        // border: 2px solid red;
+
+    
+
+    &:hover{
+    color: $color-primary-dark;
+    font-weight: 700;
+    transform: scale(1.1);
+
+    }
   }
 
   &__heading {
     @include secondary-heading;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    align-self: flex-start;
+
   }
 
   &__subheading {
@@ -951,7 +964,7 @@
     font-size: 1.6rem;
 
     &:not(:last-child) {
-      border-right: 3px solid red;
+      border-right: 2px solid $color-grey-light-2;
       padding-right: 2rem;
       width: 50%;
     }
@@ -963,9 +976,12 @@
 
   &__button {
     @include btn;
+    display: inline-block;
     background-color: $color-primary-dark;
     border: none;
-    padding: 2rem 3rem;
+    // padding: 2rem 5rem;
     margin-top: 3rem;
+    color: #fff;
   }
 }
+
